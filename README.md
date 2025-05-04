@@ -7,13 +7,12 @@ Repositori ini berisi notebook Python (`train_comparison.ipynb`) yang membanding
 
 - Deskripsi Dataset
 - Pra-pemrosesan Data
-- Arsitektur CNN yang digunakan
+- Arsitektur ANN yang digunakan
 - Teknik Augmentasi Data
 - Strategi Pelatihan:
-  - Tanpa augmentasi
-  - Dengan augmentasi ringan
-  - Dengan augmentasi berat
-  - Dengan regularisasi Gaussian Noise
+  - ANN Tanpa preprocessing dan augmentasi
+  - ANN Dengan preprocessing dan augmentasi
+  - Perbandingan dengan custom CNN
 - Evaluasi Model
 - Visualisasi Performa
 - Simpan dan Muat Model
