@@ -1,5 +1,5 @@
 
-# Perbandingan Model CNN untuk Deteksi Pneumonia
+# Perbandingan Model ANN setelah dan sebelum Image Preprocessing dan Augmentation untuk Deteksi Pneumonia
 
 Repositori ini berisi notebook Python (`train_comparison.ipynb`) yang membandingkan berbagai strategi pelatihan Convolutional Neural Network (CNN) untuk mendeteksi pneumonia dari citra X-ray dada. Proyek ini menggunakan dataset **Pneumonia-MNIST** yang tersedia melalui `tensorflow_datasets`.
 
@@ -53,38 +53,30 @@ pip install tensorflow tensorflow-datasets matplotlib
 
 ## Arsitektur Model
 
-Model CNN yang digunakan terdiri dari:
-- Layer konvolusi bertingkat
-- MaxPooling
+Model ANN yang digunakan terdiri dari:
 - Flatten
 - Dense
 - Fungsi aktivasi ReLU dan sigmoid untuk klasifikasi biner
 
-Tiap eksperimen menggunakan arsitektur yang sama namun berbeda pada bagian augmentasi atau regularisasi.
+Tiap eksperimen menggunakan arsitektur yang sama namun berbeda pada bagian preprocessing dan augmentasi.
 
 ---
 
 ## Strategi Pelatihan
 
-### 1. Tanpa Augmentasi  
-Model dilatih langsung dengan data asli tanpa teknik augmentasi.
+### 1. Tanpa Preprocessing dan Augmentasi  
+Model dilatih langsung dengan data asli tanpa teknik preprocessing dan augmentasi.
 
-### 2. Augmentasi Ringan  
+### 2. Preprocessing
+Menambahkan preprocessing seperti:
+- Black and White
+- Central Crop
+
+### 3. Augmentasi Ringan  
 Menambahkan transformasi ringan seperti:
 - Flip horizontal
 - Translasi kecil
 - Zoom kecil
-- Rotasi terbatas
-
-### 3. Augmentasi Berat  
-Menambahkan transformasi lanjutan:
-- Flip
-- Rotasi besar
-- Zoom besar
-- Shear, Perspective, dan Crop acak
-
-### 4. Regularisasi Gaussian Noise  
-Menambahkan lapisan `GaussianNoise` ke input sebagai bentuk regularisasi terhadap overfitting.
 
 ---
 
@@ -98,7 +90,7 @@ Setiap model dievaluasi menggunakan:
 
 ## Menyimpan & Memuat Model
 
-Model terbaik dari setiap strategi disimpan dengan format `.keras`. Notebook juga mendukung memuat ulang model tersebut untuk evaluasi atau prediksi lanjutan.
+Model terbaik dari setiap strategi disimpan dengan format `.h5`. Notebook juga mendukung memuat ulang model tersebut untuk evaluasi atau prediksi lanjutan.
 
 ---
 
@@ -107,7 +99,3 @@ Model terbaik dari setiap strategi disimpan dengan format `.keras`. Notebook jug
 Notebook menampilkan perbandingan visual antar model berdasarkan performa akurasi dan loss. Tujuan utamanya adalah menemukan strategi pelatihan terbaik untuk klasifikasi pneumonia yang akurat pada dataset yang kecil.
 
 ---
-
-## Lisensi
-
-Repositori ini hanya digunakan untuk keperluan pembelajaran dan eksperimen.
