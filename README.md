@@ -85,6 +85,8 @@ Setiap model dievaluasi menggunakan:
 - Akurasi dan loss pada data validasi
 - Plot kurva akurasi dan loss selama pelatihan
 
+<img width="1222" height="605" alt="download (7)" src="https://github.com/user-attachments/assets/a05d9b9f-8e16-474c-b14a-8d052ef09869" />
+
 ---
 
 ## Menyimpan & Memuat Model
