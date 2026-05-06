@@ -1,40 +1,40 @@
 
-# Perbandingan Model ANN setelah dan sebelum Image Preprocessing dan Augmentation untuk Deteksi Pneumonia
+# ANN Model Comparison Before and After Image Preprocessing and Augmentation for Pneumonia Detection
 
-Repositori ini berisi notebook Python (`train_comparison.ipynb`) yang membandingkan berbagai strategi pelatihan Convolutional Neural Network (CNN) untuk mendeteksi pneumonia dari citra X-ray dada. Proyek ini menggunakan dataset **Pneumonia-MNIST** yang tersedia melalui `tensorflow_datasets`.
+This repository contains a Python notebook (`train_comparison.ipynb`) that compares various training strategies for Convolutional Neural Networks (CNN) to detect pneumonia from chest X-ray images.
 
-## Daftar Isi
+## Table of Contents
 
-- Deskripsi Dataset
-- Pra-pemrosesan Data
-- Arsitektur ANN yang digunakan
-- Teknik Augmentasi Data
-- Strategi Pelatihan:
-  - ANN Tanpa preprocessing dan augmentasi
-  - ANN Dengan preprocessing dan augmentasi
-  - Perbandingan dengan custom CNN
-- Evaluasi Model
-- Visualisasi Performa
-- Simpan dan Muat Model
+- Dataset Description
+- Data Preprocessing
+- ANN Architecture Used
+- Data Augmentation Techniques
+- Training Strategies:
+  - ANN Without preprocessing and augmentation
+  - ANN With preprocessing and augmentation
+  - Comparison with custom CNN
+- Model Evaluation
+- Performance Visualization
+- Save and Load Models
 
 ---
 
 ## Dataset
 
-Dataset yang digunakan adalah `pneumonia_mnist`, sebuah subset dari MedMNIST, terdiri dari citra grayscale resolusi rendah (28x28 piksel) yang diklasifikasikan sebagai:
+The dataset used is `pneumonia_mnist`, a subset of MedMNIST, consisting of low-resolution grayscale images (28x28 pixels) classified as:
 - **0**: Normal
 - **1**: Pneumonia
 
-Pembagian data:
+Data split:
 - **Training**: 800 data
-- **Validasi**: 200 data
+- **Validation**: 200 data
 - **Testing**: 100 data
 
 ---
 
-## Instalasi
+## Installation
 
-Pastikan Python sudah terinstal, lalu pasang pustaka berikut:
+Make sure Python is installed, then install the following libraries:
 
 ```bash
 pip install tensorflow tensorflow-datasets matplotlib
@@ -42,61 +42,61 @@ pip install tensorflow tensorflow-datasets matplotlib
 
 ---
 
-## Cara Menjalankan
+## How to Run
 
-1. Buka file `train_comparison.ipynb` di Jupyter Notebook atau VSCode.
-2. Jalankan semua sel untuk memproses data, melatih, dan mengevaluasi model.
-3. Model terbaik akan disimpan secara otomatis menggunakan `ModelCheckpoint`.
+1. Open the `train_comparison.ipynb` file in Jupyter Notebook or VSCode.
+2. Run all cells to process data, train, and evaluate models.
+3. The best model will be automatically saved using `ModelCheckpoint`.
 
 ---
 
-## Arsitektur Model
+## Model Architecture
 
-Model ANN yang digunakan terdiri dari:
+The ANN model used consists of:
 - Flatten
 - Dense
-- Fungsi aktivasi ReLU dan sigmoid untuk klasifikasi biner
+- ReLU and sigmoid activation functions for binary classification
 
-Tiap eksperimen menggunakan arsitektur yang sama namun berbeda pada bagian preprocessing dan augmentasi.
+Each experiment uses the same architecture but differs in the preprocessing and augmentation sections.
 
 ---
 
-## Strategi Pelatihan
+## Training Strategies
 
-### 1. Tanpa Preprocessing dan Augmentasi  
-Model dilatih langsung dengan data asli tanpa teknik preprocessing dan augmentasi.
+### 1. Without Preprocessing and Augmentation
+Model is trained directly with raw data without any preprocessing and augmentation techniques.
 
 ### 2. Preprocessing
-Menambahkan preprocessing seperti:
+Adding preprocessing techniques such as:
 - Black and White
 - Central Crop
 
-### 3. Augmentasi Ringan  
-Menambahkan transformasi ringan seperti:
-- Flip horizontal
-- Translasi kecil
-- Zoom kecil
+### 3. Light Augmentation
+Adding light transformations such as:
+- Horizontal flip
+- Small translation
+- Small zoom
 
 ---
 
-## Evaluasi & Visualisasi
+## Evaluation & Visualization
 
-Setiap model dievaluasi menggunakan:
-- Akurasi dan loss pada data validasi
-- Plot kurva akurasi dan loss selama pelatihan
+Each model is evaluated using:
+- Accuracy and loss on validation data
+- Plot accuracy and loss curves during training
 
 <img width="1222" height="605" alt="download (7)" src="https://github.com/user-attachments/assets/a05d9b9f-8e16-474c-b14a-8d052ef09869" />
 
 ---
 
-## Menyimpan & Memuat Model
+## Saving & Loading Models
 
-Model terbaik dari setiap strategi disimpan dengan format `.h5`. Notebook juga mendukung memuat ulang model tersebut untuk evaluasi atau prediksi lanjutan.
+The best model from each strategy is saved in `.h5` format. The notebook also supports reloading these models for further evaluation or prediction.
 
 ---
 
-## Hasil
+## Results
 
-Notebook menampilkan perbandingan visual antar model berdasarkan performa akurasi dan loss. Tujuan utamanya adalah menemukan strategi pelatihan terbaik untuk klasifikasi pneumonia yang akurat pada dataset yang kecil.
+The notebook displays a visual comparison between models based on accuracy and loss performance. The main objective is to find the best training strategy for accurate pneumonia classification on X-ray images.
 
 ---
